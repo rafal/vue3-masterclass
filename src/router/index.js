@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import PageHome from '@/components/PageHome.vue'
+import PageHome from '@/pages/PageHome.vue'
 import data from '@/data.json'
 
 const router = createRouter({
@@ -14,7 +14,7 @@ const router = createRouter({
       path: '/thread/:id',
       name: 'threadShow',
       props: true,
-      component: () => import('@/components/PageThreadShow.vue'),
+      component: () => import('@/pages/PageThreadShow.vue'),
       beforeEnter(to, from, next) {
         const threadExists = data.threads.find((thread) => thread.id === to.params.id)
         if (!threadExists) {
