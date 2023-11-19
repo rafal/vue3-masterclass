@@ -30,6 +30,12 @@ const router = createRouter({
       }
     },
     {
+      path: '/forum/:id',
+      name: 'forum',
+      props: true,
+      component: () => import('@/pages/PageForum.vue')
+    },
+    {
       path: '/:pathMatch(.*)*',
       name: 'NotFound',
       component: () => import('@/components/PageNotFound.vue')
