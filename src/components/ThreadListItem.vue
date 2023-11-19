@@ -20,7 +20,9 @@ const userById = (id) => users.value.find((u) => u.id === id)
         }}</router-link>
       </p>
       <p class="text-faded text-xsmall">
-        By <a href="#">{{ userById(thread.userId).name }}, {{ thread.publishedAt }}</a>
+        By
+        <a href="#">{{ userById(thread.userId).name }}</a
+        >, <AppDate :timestamp="thread.publishedAt" />
       </p>
     </div>
 
@@ -33,7 +35,7 @@ const userById = (id) => users.value.find((u) => u.id === id)
         <p class="text-xsmall">
           <a href="">{{ userById(thread.userId).name }}</a>
         </p>
-        <p class="text-xsmall text-faded">{{ thread.publishedAt }}</p>
+        <p class="text-xsmall text-faded"><AppDate :timestamp="thread.publishedAt" /></p>
       </div>
     </div>
   </div>

@@ -9,8 +9,6 @@ defineProps({
 import data from '@/data.json'
 import { ref } from 'vue'
 const users = ref(data.users)
-const posts = ref(data.posts)
-const postById = (id) => posts.value.find((p) => p.id === id)
 const userById = (id) => users.value.find((u) => u.id === id)
 </script>
 
@@ -34,7 +32,9 @@ const userById = (id) => users.value.find((u) => u.id === id)
       </div>
     </div>
 
-    <div class="post-date text-faded">{{ postById(post.id).publishedAt }}</div>
+    <div class="post-date text-faded">
+      <AppDate :timestamp="post.publishedAt" />
+    </div>
   </div>
 </template>
 
