@@ -11,6 +11,12 @@ const router = createRouter({
       component: PageHome
     },
     {
+      path: '/category/:id',
+      name: 'category',
+      props: true,
+      component: () => import('@/pages/PageCategory.vue')
+    },
+    {
       path: '/thread/:id',
       name: 'threadShow',
       props: true,
