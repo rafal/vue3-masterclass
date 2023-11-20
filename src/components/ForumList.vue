@@ -1,5 +1,8 @@
 <script setup>
 defineProps({
+  category: {
+    type: Object
+  },
   forums: {
     type: Array,
     required: true,
@@ -18,7 +21,10 @@ const forumThreadsWord = (forum) => {
   <div class="col-full">
     <div class="forum-list">
       <h2 class="list-title">
-        <a href="#">Forums</a>
+        <router-link v-if="category" :to="{ name: 'category', params: { id: category.id } }">{{
+          category.name
+        }}</router-link>
+        <span v-else>Forums</span>
       </h2>
 
       <div class="forum-listing" v-for="forum in forums" :key="forum.id">
